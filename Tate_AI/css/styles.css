@@ -1,0 +1,293 @@
+/*******************************************************
+  RESET & BASICS
+ *******************************************************/
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  html, body {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7); /* more transparent */
+    color: #c3f9ff; 
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    font-family: 'Orbitron', sans-serif; /* Tron-like font */
+  }
+  body {
+    position: relative;
+  }
+  
+  /*******************************************************
+    BACKGROUND VIDEO
+   *******************************************************/
+  #bg-video {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; 
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1; /* behind everything */
+  }
+  
+  /*******************************************************
+    PRELOADER - NEON LASERS
+   *******************************************************/
+  #preloader {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    z-index: 9999;
+    transition: opacity 0.5s ease, visibility 0.5s;
+  }
+  #preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+  #laser-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+  }
+  .laser {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 150px;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(0,255,255,0), #0ff, rgba(0,255,255,0));
+    transform-origin: center;
+    animation: spin 1.5s infinite linear;
+  }
+  .laser-1 {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+  .laser-2 {
+    transform: translate(-50%, -50%) rotate(-45deg);
+    animation-delay: 0.75s;
+  }
+  @keyframes spin {
+    0%   { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+  
+  /*******************************************************
+    NAVBAR (center aligned, bigger logo)
+   *******************************************************/
+  .navbar {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 70px;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* center horizontally */
+    background: rgba(0,0,0,0.75);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .navbar-inner {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  .navbar-inner nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  .navbar-inner li a {
+    text-decoration: none;
+    color: #0ff;
+    font-weight: 700; /* bold Tron feel */
+    transition: color 0.3s;
+    font-size: 1rem;
+  }
+  .navbar-inner li a:hover {
+    color: #f0f;
+  }
+  
+  /* Bigger logo */
+  .logo-placeholder {
+    max-height: 60px;
+    border: 2px solid #0ff;
+    border-radius: 5px;
+    padding: 5px;
+  }
+  
+  /*******************************************************
+    MAIN WRAPPER
+   *******************************************************/
+  .main-wrapper {
+    margin-top: 70px; /* so sections aren't hidden behind navbar */
+  }
+  
+  /*******************************************************
+    SECTIONS
+   *******************************************************/
+  .section {
+    width: 100%;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 40px 0; /* minimal distance between sections */
+  }
+  .section-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 20px;
+  }
+  
+  /*******************************************************
+    TITLES with SMUDGE/NEON GLOW
+   *******************************************************/
+  .neon-title, .section-content h2 {
+    font-size: 3rem;
+    color: #0ff;
+    text-shadow: 
+      0 0 2px #0ff,
+      0 0 5px #0ff,
+      0 0 10px #0ff,
+      0 0 20px #0ff;
+    margin-bottom: 1rem;
+  }
+  .neon-subtitle {
+    font-size: 1.3rem;
+    color: #f0f;
+    text-shadow: 
+      0 0 2px #f0f,
+      0 0 5px #f0f,
+      0 0 10px #f0f,
+      0 0 20px #f0f;
+    margin-bottom: 2rem;
+  }
+  
+  /* Adjust for smaller section headings */
+  .section-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  /*******************************************************
+    CONTRACT TEXT
+   *******************************************************/
+  .contract-text {
+    font-size: 1.2rem;
+    color: #0ff;
+    text-shadow: 0 0 8px #0ff, 0 0 15px #0ff;
+    margin: 20px 0;
+  }
+  
+  /*******************************************************
+    MASCOT IMAGE
+   *******************************************************/
+  .mascot-img {
+    border: 2px solid #0ff;
+    border-radius: 6px;
+    padding: 5px;
+  }
+  
+  /*******************************************************
+    WIDE IMAGE (for transition section)
+   *******************************************************/
+  .wide-image-container {
+    width: 100%;
+    overflow: hidden; 
+  }
+  .wide-image {
+    width: 110%;
+    margin-left: -5%;
+    /* slight overshoot so we can animate from left to right */
+  }
+  
+  /*******************************************************
+    YOUTUBE SECTION
+    2.5x bigger than a typical embed
+   *******************************************************/
+  .video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding-bottom: 125%; 
+    height: 0;
+    border: 5px solid #0ff; 
+    border-radius: 10px;
+  }
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  /*******************************************************
+    LINKS SECTION (CHART, TELEGRAM, X)
+   *******************************************************/
+  .link-buttons {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+  }
+  .neon-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    color: #fff;
+    border: 2px solid #0ff;
+    font-weight: 600;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s;
+  }
+  .neon-button:hover {
+    color: #0ff;
+  }
+  .neon-button::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 0;
+    top: 0; left: 0;
+    background: #0ff;
+    opacity: 0.3;
+    transition: height 0.4s;
+    z-index: -1;
+  }
+  .neon-button:hover::before {
+    height: 100%;
+  }
+  
+  /*******************************************************
+    MEDIA QUERIES
+   *******************************************************/
+  @media (max-width: 768px) {
+    .navbar {
+      height: 60px;
+    }
+    .logo-placeholder {
+      max-height: 50px;
+    }
+    .neon-title, .section-content h2 {
+      font-size: 2rem;
+    }
+    .neon-subtitle {
+      font-size: 1rem;
+    }
+    .video-wrapper {
+      padding-bottom: 150%; /* bigger on small screens if you want more vertical space */
+    }
+  }
+  

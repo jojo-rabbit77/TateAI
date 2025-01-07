@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tate AI — Neo-Noir Professional</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Favicon Placeholder -->
+  <link rel="icon" type="image/x-icon" href="images/favicon.jpeg">
+  
+  <!-- Retro / Tron-Style Font (Orbitron as example) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" 
+    rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- BACKGROUND VIDEO: Un-commented to be active -->
+  <video autoplay muted loop id="bg-video">
+    <source src="images/background.mp4" type="video/mp4">
+    <!-- If the video doesn't load, fallback is a black background -->
+  </video>
+
+  <!-- PRELOADER -->
+  <div id="preloader">
+    <div id="laser-container">
+      <div class="laser laser-1"></div>
+      <div class="laser laser-2"></div>
+    </div>
+  </div>
+
+  <!-- NAVBAR + LOGO (Center-Aligned) -->
+  <header class="navbar">
+    <div class="navbar-inner">
+      <img 
+        src="images/logo.jpeg" 
+        alt="Tate AI Logo" 
+        class="logo-placeholder"
+      />
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#contract">Contract</a></li>
+          <li><a href="#about">About Tate AI</a></li>
+          <li><a href="#how-to-buy">How to Buy</a></li>
+          <li><a href="#transition-image">Transition Image</a></li>
+          <li><a href="#youtube">YouTube</a></li>
+          <li><a href="#links">Chart & Links</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN WRAPPER -->
+  <div class="main-wrapper">
+
+    <!-- HOME SECTION -->
+    <section id="home" class="section home-section">
+      <div class="section-content">
+        <h1 class="neon-title">TATE AI</h1>
+        <h2 class="neon-subtitle">Enter the Neo-Noir Matrix</h2>
+        <p>
+          Where hustle meets unstoppable AI. Scroll to see 
+          smooth transitions and the background video in action.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTRACT SECTION -->
+    <section id="contract" class="section contract-section">
+      <div class="section-content">
+        <h2>Contract Address</h2>
+        <p class="contract-text">
+          0x1234567890ABCDEF1234567890ABCDEF12345678
+        </p>
+        <p>Add Tate AI to your wallet with this contract address.</p>
+      </div>
+    </section>
+
+    <!-- ABOUT TATE AI SECTION 
+         Using the MASCOT PHOTO here.
+    -->
+    <section id="about" class="section about-section">
+      <div class="section-content">
+        <h2>About Tate AI</h2>
+        <p>
+          Embrace the unstoppable force of an AI agent built for the 
+          hustle-driven alpha. Push beyond limits, harness the matrix, 
+          and reign supreme in crypto.
+        </p>
+        <div style="margin-top: 2rem;">
+          <img 
+            src="images/mascot.jpeg" 
+            alt="Mascot" 
+            class="mascot-img"
+            style="max-width: 300px;"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW TO BUY SECTION -->
+    <section id="how-to-buy" class="section buy-section">
+      <div class="section-content">
+        <h2>How to Buy Tate AI</h2>
+        <ol style="text-align: left; max-width: 600px; margin: 0 auto;">
+          <li>Install <strong>Phantom Wallet</strong>.</li>
+          <li>Transfer SOL (Solana) to your wallet.</li>
+          <li>Click “Add Token” and insert the <strong>Contract Address</strong>.</li>
+          <li>Review & confirm. You’re all set!</li>
+        </ol>
+        <p style="margin-top: 1rem;">Own a piece of the unstoppable AI future today.</p>
+      </div>
+    </section>
+
+    <!-- TRANSITION IMAGE SECTION 
+         placed about 1/3 down the page (after a few sections).
+         This wide-image slides from left to right as user scrolls.
+    -->
+    <section id="transition-image" class="section transition-section">
+      <div class="section-content">
+        <h2>A Futuristic Glimpse</h2>
+        <p>
+          Watch this image arrive from the left and disappear to the right
+          as you scroll further down. 
+        </p>
+        <div class="wide-image-container">
+          <img 
+            src="images/wide-image.jpeg"
+            alt="Wide Expanding Image"
+            class="wide-image"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- YOUTUBE SECTION -->
+    <section id="youtube" class="section youtube-section">
+      <div class="section-content">
+        <h2>Featured Video</h2>
+        <div class="video-wrapper">
+          <iframe 
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+            frameborder="0"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <p style="margin-top: 1rem; color: #bbb;">
+          Stay tuned for more Tate AI updates and insights.
+        </p>
+      </div>
+    </section>
+
+    <!-- LINKS SECTION -->
+    <section id="links" class="section links-section">
+      <div class="section-content">
+        <h2>Join the Community & Stay Informed</h2>
+        <div class="link-buttons">
+          <a href="#" class="neon-button">Chart</a>
+          <a href="#" class="neon-button">Telegram</a>
+          <a href="#" class="neon-button">X (Twitter)</a>
+        </div>
+      </div>
+    </section>
+
+  </div> <!-- END main-wrapper -->
+
+  <!-- GSAP & ScrollTrigger from CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <!-- MAIN JS -->
+  <script src="js/main.js"></script>
+</body>
+</html>
